@@ -63,3 +63,20 @@ the page never breaks.
   substitute named in the brand guide).
 - No build tools, no dependencies, fully responsive, keyboard-accessible, and
   respects reduced-motion preferences.
+
+## Logos & favicon (updated)
+- Every on-page logo (header, footer, hero, feature) uses the transparent
+  `*_Transparent.png` files, so they sit cleanly on the cream background.
+- Social/text share previews intentionally use the **non-transparent**
+  `WideLogo_FullColor.png` — a transparent PNG would show as a black or white
+  block in iMessage/Facebook/etc.
+- The favicon (`imgs/Berries_FullColor_BrowserTransparent.png`) is now a square
+  256×256 transparent icon. A non-square favicon is the usual reason a browser
+  silently refuses to show one.
+
+### If the favicon still doesn't appear
+Favicons cache very aggressively. After deploying:
+1. Hard-refresh (Cmd/Ctrl+Shift+R), or open the site in a private window.
+2. The links already include `?v=2` to bust the cache — if you swap the icon
+   again later, bump it to `?v=3` in each HTML file.
+3. On GitHub Pages, allow a minute or two after the build finishes.
