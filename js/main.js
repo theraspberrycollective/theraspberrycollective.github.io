@@ -6,16 +6,22 @@
   var links = document.getElementById("nav-links");
   if (!toggle || !links) return;
 
-  toggle.addEventListener("click", function () {
-    var open = links.classList.toggle("is-open");
+  var ICON_MENU = '<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>';
+  var ICON_CLOSE = '<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M6 6l12 12M6 18L18 6"/></svg>';
+
+  function setOpen(open) {
+    links.classList.toggle("is-open", open);
     toggle.setAttribute("aria-expanded", open ? "true" : "false");
+    toggle.setAttribute("aria-label", open ? "Close menu" : "Menu");
+    toggle.innerHTML = open ? ICON_CLOSE : ICON_MENU;
+  }
+
+  toggle.addEventListener("click", function () {
+    setOpen(!links.classList.contains("is-open"));
   });
 
   links.addEventListener("click", function (e) {
-    if (e.target.tagName === "A") {
-      links.classList.remove("is-open");
-      toggle.setAttribute("aria-expanded", "false");
-    }
+    if (e.target.tagName === "A") setOpen(false);
   });
 })();
 
