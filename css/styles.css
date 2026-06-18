@@ -138,6 +138,9 @@ p { margin: 0 0 1.15em; }
   border-bottom: none;
 }
 .nav__links .nav__donate:hover { background: var(--raspberry-deep); color: var(--cream); }
+/* On the Donate page the current-page rule above recolors links to magenta;
+   keep the filled Donate pill's label cream so it stays readable. */
+.nav__links .nav__donate[aria-current="page"] { color: var(--cream); }
 
 .nav__toggle {
   display: none; background: none; border: 0; cursor: pointer;
