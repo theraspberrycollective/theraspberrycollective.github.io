@@ -167,8 +167,13 @@ p { margin: 0 0 1.15em; }
   }
   .nav__links a[aria-current="page"] { border-bottom: 0; }
   .nav__links .nav__donate {
-    display: inline-block; margin: 0.6rem auto 0;
+    display: inline-block;
     width: auto;
+    /* auto side-margins collapse to 0 on inline-block, pinning the pill to the
+       left edge. Inset it so its left edge lines up with the other links' text
+       (1.5rem column gutter + 1.5rem link padding). */
+    margin: 0.6rem 0 0;
+    margin-inline-start: 3rem;
   }
 }
 
